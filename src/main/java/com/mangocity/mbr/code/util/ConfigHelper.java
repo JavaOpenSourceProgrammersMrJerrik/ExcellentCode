@@ -25,8 +25,8 @@ public class ConfigHelper {
 
 	private static final Logger LOGGER = Logger.getLogger(ConfigHelper.class);
 
-	/** 匹配Properties文件名正则(联合IGNORE_REPEAT_KEY_FILE_LIST一起使用) */
-	private static final String PROPS_FILE_REGEX = "db.properties";
+	/** 匹配Properties文件名正则(联合IGNORE_REPEAT_KEY_FILE_LIST一起使用)  .+.properties匹配所有 */
+	private static final String PROPS_FILE_REGEX = ".+.properties";
 
 	/**
 	 * 忽略重复key的配置文件,多个以逗号隔开(xxx_pro,xxx_dev,xxx_test.properties)
@@ -229,6 +229,15 @@ public class ConfigHelper {
 		}
 		return intValue;
 	}
+	
+	//重载方法
+	public static Integer getIntValue(String propsKey){
+		Integer intValue = getIntValue(propsKey, -1);
+		if(null != intValue && intValue.intValue() == -1){
+			throw new RuntimeException("acquire propsKey {"+propsKey+"} fail.");
+		}
+		return intValue;
+	}
 
 	/**
 	 * 返回Double型浮点数
@@ -244,6 +253,14 @@ public class ConfigHelper {
 			doubleValue = Double.parseDouble(val);
 		} catch (NumberFormatException e) {
 			doubleValue = defaultValue;
+		}
+		return doubleValue;
+	}
+	
+	public static Double getDoubleValue(String propsKey){
+		Double doubleValue = getDoubleValue(propsKey, -1D);
+		if(null != doubleValue && (doubleValue.compareTo(-1D) == 0)){
+			throw new RuntimeException("acquire propsKey {"+propsKey+"} fail.");
 		}
 		return doubleValue;
 	}
