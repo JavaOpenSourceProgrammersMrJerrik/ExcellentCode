@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  * Class辅助类(类似Spring的组件扫描功能)
  * @author YangJie
  */
-public class ClassUtil {
+public class ClassHelper {
 
 	// 获取指定包名下的所有类
 	public static List<Class<?>> getClassList(String packageName, boolean isRecursive) {
