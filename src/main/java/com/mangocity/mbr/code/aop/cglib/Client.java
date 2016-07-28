@@ -7,7 +7,7 @@ import com.mangocity.mbr.code.aop.Greeting;
  */
 public class Client {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Greeting greeting = CGLibDynamicProxy.getInstance().getProxy(GreetingImpl.class);
         greeting.sayHello("Jack");
     }

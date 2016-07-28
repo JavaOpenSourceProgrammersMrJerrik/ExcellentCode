@@ -4,8 +4,8 @@ import com.mangocity.mbr.code.aop.Greeting;
 
 public class GreetingImpl implements Greeting {
 
-    @Override
-    public void sayHello(String name) {
+    public void sayHello(String name) throws Exception {
         System.out.println("Hello! " + name);
+        throw new Exception("222");
     }
 }

@@ -9,7 +9,7 @@ import com.mangocity.mbr.code.aop.Greeting;
  */
 public class Client2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ProxyFactory proxyFactory = new ProxyFactory();
         proxyFactory.setTarget(new GreetingImpl());
         proxyFactory.addAdvice(new GreetingBeforeAndAfterAdvice());

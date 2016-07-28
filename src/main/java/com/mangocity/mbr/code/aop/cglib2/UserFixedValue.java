@@ -1,4 +1,4 @@
-package com.mangocity.mbr.code.cglib;
+package com.mangocity.mbr.code.aop.cglib2;
 
 import net.sf.cglib.proxy.FixedValue;
 

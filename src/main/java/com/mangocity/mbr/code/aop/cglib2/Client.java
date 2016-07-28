@@ -1,5 +1,6 @@
-package com.mangocity.mbr.code.cglib;
+package com.mangocity.mbr.code.aop.cglib2;
 
+import java.io.DataInputStream;
 import java.lang.reflect.Method;
 
 import net.sf.cglib.proxy.Callback;
@@ -13,6 +14,7 @@ public class Client {
 	public static void main(String[] args) {
 		UserDaoImpl userDao = ProxyFactory.getProxy(UserDaoImpl.class, new Callback[] { new UserMethodInterceptor(),
 				new UserFixedValue(), NoOp.INSTANCE }, new UserCallbackFilter());
+		
 		userDao.execute();
 	}
 }
